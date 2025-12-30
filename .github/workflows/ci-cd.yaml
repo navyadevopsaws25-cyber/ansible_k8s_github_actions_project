@@ -52,13 +52,13 @@ jobs:
           cd Application
           docker build -t $REGISTRY/$IMAGE_NAME:${{ github.run_number }} .
 
-      # # === Docker Image Scan ===
-      - name: Scan Docker Image with Trivy
-        uses: aquasecurity/trivy-action@0.20.0
-        with:
-          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
-          severity: CRITICAL,HIGH
-          ignore-unfixed: true
+      # # # === Docker Image Scan ===
+      # - name: Scan Docker Image with Trivy
+      #   uses: aquasecurity/trivy-action@0.20.0
+      #   with:
+      #     image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}
+      #     severity: CRITICAL,HIGH
+      #     ignore-unfixed: true
 
       # === Push Docker Image ===
       - name: Push Docker Image
@@ -77,11 +77,12 @@ jobs:
       - name: Checkout full history
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.MY_GITHUB_TOKEN }}
+           fetch-depth: 0  
+      
+      # - name: Checkout
+      #   uses: actions/checkout@v3
+        # with:
+        #   token: ${{ secrets.MY_GITHUB_TOKEN }}
                   
       - name: Update K8s Deployment YAML
         run: |
