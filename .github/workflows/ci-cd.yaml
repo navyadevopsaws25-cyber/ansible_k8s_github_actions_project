@@ -13,7 +13,7 @@ jobs:
     
     env:
       REGISTRY: docker.io
-      IMAGE_NAME: devopshubg333/k8s_ansible
+      IMAGE_NAME: navyadevopsaws25/k8s_ansible
 
     steps:
       # === Checkout Code ===
@@ -86,8 +86,8 @@ jobs:
                   
       - name: Update K8s Deployment YAML
         run: |
-          git config user.name "jadalaramani"
-          git config user.email "jadalaramani@gmail.com"
+          git config user.name "karre navya"
+          git config user.email "karrenavya@gmail.com"
           
           git pull origin main --rebase
           
